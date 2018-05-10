@@ -4,7 +4,7 @@
 #
 Name     : fwupdate
 Version  : 11
-Release  : 2
+Release  : 3
 URL      : https://github.com/rhboot/fwupdate/releases/download/11/fwupdate-11.tar.bz2
 Source0  : https://github.com/rhboot/fwupdate/releases/download/11/fwupdate-11.tar.bz2
 Summary  : Tools to manage UEFI firmware updates
