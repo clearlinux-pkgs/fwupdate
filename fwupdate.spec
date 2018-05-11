@@ -4,7 +4,7 @@
 #
 Name     : fwupdate
 Version  : 11
-Release  : 3
+Release  : 4
 URL      : https://github.com/rhboot/fwupdate/releases/download/11/fwupdate-11.tar.bz2
 Source0  : https://github.com/rhboot/fwupdate/releases/download/11/fwupdate-11.tar.bz2
 Summary  : Tools to manage UEFI firmware updates
@@ -87,17 +87,21 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1525542260
+export SOURCE_DATE_EPOCH=1526067265
 make  %{?_smp_mflags} EFIDIR=org.clearlinux GNUEFIDIR=/usr/lib64
 
 %install
-export SOURCE_DATE_EPOCH=1525542260
+export SOURCE_DATE_EPOCH=1526067265
 rm -rf %{buildroot}
 %make_install EFIDIR=org.clearlinux GNUEFIDIR=/usr/lib64
+## make_install_append content
+install -m 0755 -d %{buildroot}/usr/lib/fwupd
+mv %{buildroot}/boot/efi/EFI/org.clearlinux/fwupx64.efi %{buildroot}/usr/lib/fwupd/
+## make_install_append end
 
 %files
 %defattr(-,root,root,-)
-/boot/efi/EFI/org.clearlinux/fwupx64.efi
+/usr/lib/fwupd/fwupx64.efi
 
 %files bin
 %defattr(-,root,root,-)
