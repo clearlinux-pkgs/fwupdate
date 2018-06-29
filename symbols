@@ -1,4 +1,5 @@
 libfwup.so.1:LIBFWUP_1.11
+libfwup.so.1:LIBFWUP_1.12
 libfwup.so.1:fwup_clear_status
 libfwup.so.1:fwup_enable_esrt
 libfwup.so.1:fwup_esrt_disabled
@@ -24,4 +25,5 @@ libfwup.so.1:fwup_set_up_update
 libfwup.so.1:fwup_set_up_update_with_buf
 libfwup.so.1:fwup_supported
 libfwup.so.1:fwup_use_existing_media_path
+libfwup.so.1:fwup_version
 libfwup.so.1:libfwup.so.1
