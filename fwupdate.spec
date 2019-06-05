@@ -4,7 +4,7 @@
 #
 Name     : fwupdate
 Version  : 12
-Release  : 5
+Release  : 6
 URL      : https://github.com/rhboot/fwupdate/releases/download/12/fwupdate-12.tar.bz2
 Source0  : https://github.com/rhboot/fwupdate/releases/download/12/fwupdate-12.tar.bz2
 Summary  : Tools to manage UEFI firmware updates
