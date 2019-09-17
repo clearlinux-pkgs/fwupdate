@@ -4,7 +4,7 @@
 #
 Name     : fwupdate
 Version  : 12
-Release  : 7
+Release  : 8
 URL      : https://github.com/rhboot/fwupdate/releases/download/12/fwupdate-12.tar.bz2
 Source0  : https://github.com/rhboot/fwupdate/releases/download/12/fwupdate-12.tar.bz2
 Summary  : Tools to manage UEFI firmware updates
@@ -19,6 +19,7 @@ Requires: fwupdate-man = %{version}-%{release}
 Requires: fwupdate-services = %{version}-%{release}
 BuildRequires : gnu-efi
 BuildRequires : gnu-efi-dev
+BuildRequires : gnu-efi-staticdev
 BuildRequires : pkgconfig(efiboot)
 BuildRequires : pkgconfig(efivar)
 BuildRequires : popt-dev
@@ -111,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565098127
+export SOURCE_DATE_EPOCH=1568738087
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -124,7 +125,7 @@ make  %{?_smp_mflags} EFIDIR=org.clearlinux GNUEFIDIR=/usr/lib64
 
 
 %install
-export SOURCE_DATE_EPOCH=1565098127
+export SOURCE_DATE_EPOCH=1568738087
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/fwupdate
 cp COPYING %{buildroot}/usr/share/package-licenses/fwupdate/COPYING
@@ -150,7 +151,8 @@ mv %{buildroot}/boot/efi/EFI/org.clearlinux/fwupx64.efi %{buildroot}/usr/lib/fwu
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.h
+/usr/include/fwup-version.h
+/usr/include/fwup.h
 /usr/lib64/libfwup.so
 /usr/lib64/pkgconfig/fwup.pc
 /usr/share/man/man3/fwup_clear_status.3
